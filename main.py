@@ -26,7 +26,7 @@ def read_excel_xls(path):
 def main():
     path = "./vocabulary.xlsx"
     tot_num, voc = read_excel_xls(path)
-    print("小金特制乱序背单词程序\n词库为小金自己挑选单词\n输入 ”y“ 或 ”Y“ 开始背单词\n结束背单词请输入 ”exit“")
+    print("乱序背单词程序\n词库为自己挑选单词\n输入 ”y“ 或 ”Y“ 开始背单词\n结束背单词请输入 ”exit“")
     begin = str(input('input here:'))
     if begin == 'exit':
         print('程序结束，即将自动退出')
