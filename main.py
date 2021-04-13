@@ -38,11 +38,17 @@ def main():
     else:
         while 1:
             sel = str(input("输入 “w” 选择输入单词模式，输入 “n” 选择其他模式\ninput here:"))
+            nums = list(range(0, tot_num))
+            print("词库生成完毕")
             if sel == 'w' or sel == 'W':
                 print()
                 print("输入模式，请努力作答\n输入 ”exit“ 结束背单词\n按 “r” 重新选择模式")
                 while 1:
-                    i = random.randint(0, tot_num - 1)
+                    if len(nums) == 0:
+                        print("词库全部单词复习完毕")
+                        break
+                    i = random.choice(nums)
+                    nums.remove(i)
                     sample = voc[i]
                     eng, chi = sample.split(':')
                     print()
@@ -64,7 +70,11 @@ def main():
             elif sel == 'n' or sel == 'N':
                 print("其他模式，按回车显示单词，再次按回车显示中文\n按 “r” 重新选择模式")
                 while 1:
-                    i = random.randint(0, tot_num - 1)
+                    if len(nums) == 0:
+                        print("词库全部单词复习完毕")
+                        break
+                    i = random.choice(nums)
+                    nums.remove(i)
                     sample = voc[i]
                     eng, chi = sample.split(':')
                     print(eng, end="")
